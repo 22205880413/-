@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    　<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <div class="list" id="abc">
+            <button id="btn" type="button">发起签到</button>
+            <div id="num" style="margin-top: 20px;height: 40px;text-align: center;"></div>
+        </div>
+</body>
+    
+    <script>
+                    $("#btn").click(function(){
+                    $.ajax({
+                        type:"Post",
+                        url:"/index",
+                        async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+                        success:function  (data) {
+                            alert("发起签到成功");
+                            $("#num").html("本次的签到码为："+data)
+                        }
+                    });
+                })
+    </script>
+    
+</html>
